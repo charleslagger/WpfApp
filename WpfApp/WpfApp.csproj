@@ -73,6 +73,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MouseBehaviour.cs" />
     <Compile Include="View\NGPositionWindow.xaml.cs">
       <DependentUpon>NGPositionWindow.xaml</DependentUpon>
     </Compile>

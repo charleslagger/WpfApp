@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp.ViewModel;
 
 namespace WpfApp.View
 {
@@ -48,62 +49,62 @@ namespace WpfApp.View
             
             listRects.Add(rect);
 
-            Console.WriteLine("==>Mouse down: startPoint.X: " + startPoint.X);
-            Console.WriteLine("==>Mouse down: startPoint.Y: " + startPoint.Y);
+            //Console.WriteLine("==>Mouse down: startPoint.X: " + startPoint.X);
+            //Console.WriteLine("==>Mouse down: startPoint.Y: " + startPoint.Y);
             canvas.Children.Add(rect);
         }
 
-        private void Canvas_MouseMove(object sender, MouseEventArgs e)
-        {
-            IsUsingMouse = e.LeftButton;
-            if (e.LeftButton == MouseButtonState.Released || rect == null)
-                return;
+        //private void Canvas_MouseMove(object sender, MouseEventArgs e)
+        //{
+        //    IsUsingMouse = e.LeftButton;
+        //    if (e.LeftButton == MouseButtonState.Released || rect == null)
+        //        return;
             
-                var pos = e.GetPosition(canvas);
+        //        var pos = e.GetPosition(canvas);
 
-                var x = Math.Min(pos.X, startPoint.X);
-                var y = Math.Min(pos.Y, startPoint.Y);
+        //        var x = Math.Min(pos.X, startPoint.X);
+        //        var y = Math.Min(pos.Y, startPoint.Y);
 
-                var w = Math.Max(pos.X, startPoint.X) - x;
-                var h = Math.Max(pos.Y, startPoint.Y) - y;
+        //        var w = Math.Max(pos.X, startPoint.X) - x;
+        //        var h = Math.Max(pos.Y, startPoint.Y) - y;
 
-                rect.Width = w;
-                rect.Height = h;
+        //        rect.Width = w;
+        //        rect.Height = h;
 
-                Canvas.SetLeft(rect, x);
-                Canvas.SetTop(rect, y);
+        //        Canvas.SetLeft(rect, x);
+        //        Canvas.SetTop(rect, y);
             
             
-                //var pos = e.GetPosition(canvas);
+        //        //var pos = e.GetPosition(canvas);
 
-                //var x = Math.Min(pos.X, startPoint.X);
-                //var y = Math.Min(pos.Y, startPoint.Y);
+        //        //var x = Math.Min(pos.X, startPoint.X);
+        //        //var y = Math.Min(pos.Y, startPoint.Y);
 
-                //var w = Math.Max(pos.X, startPoint.X) - x;
-                //var h = Math.Max(pos.Y, startPoint.Y) - y;
+        //        //var w = Math.Max(pos.X, startPoint.X) - x;
+        //        //var h = Math.Max(pos.Y, startPoint.Y) - y;
 
-                //rect.Width = w;
-                //rect.Height = h;
+        //        //rect.Width = w;
+        //        //rect.Height = h;
 
-                //Canvas.SetLeft(rect, x);
-                //Canvas.SetTop(rect, y);
-                //Console.WriteLine("==>Mouse move: x: " + x);
-                //Console.WriteLine("==>Mouse move: y: " + y);
-                //Console.WriteLine("==>Mouse move: startPoint.X: " + startPoint.X);
-                //Console.WriteLine("==>Mouse move: startPoint.Y: " + startPoint.Y);
-                //Console.WriteLine("==>Mouse move: pos.X: " + pos.X);
-                //Console.WriteLine("==>Mouse move: pos.Y: " + pos.Y);
-                //Console.WriteLine("==>Mouse move: width: " + w);
-                //Console.WriteLine("==>Mouse move: height: " + h);
-            }
+        //        //Canvas.SetLeft(rect, x);
+        //        //Canvas.SetTop(rect, y);
+        //        //Console.WriteLine("==>Mouse move: x: " + x);
+        //        //Console.WriteLine("==>Mouse move: y: " + y);
+        //        //Console.WriteLine("==>Mouse move: startPoint.X: " + startPoint.X);
+        //        //Console.WriteLine("==>Mouse move: startPoint.Y: " + startPoint.Y);
+        //        //Console.WriteLine("==>Mouse move: pos.X: " + pos.X);
+        //        //Console.WriteLine("==>Mouse move: pos.Y: " + pos.Y);
+        //        //Console.WriteLine("==>Mouse move: width: " + w);
+        //        //Console.WriteLine("==>Mouse move: height: " + h);
+        //    }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             endPoint = e.GetPosition(canvas);
-            Console.WriteLine("==>Mouse move: startPoint.X: " + startPoint.X);
-            Console.WriteLine("==>Mouse move: startPoint.Y: " + startPoint.Y);
-            Console.WriteLine("==>Mouse up: endPoint.X: " + endPoint.X);
-            Console.WriteLine("==>Mouse up: endPoint.Y: " + endPoint.Y);
+            //Console.WriteLine("==>Mouse move: startPoint.X: " + startPoint.X);
+            //Console.WriteLine("==>Mouse move: startPoint.Y: " + startPoint.Y);
+            //Console.WriteLine("==>Mouse up: endPoint.X: " + endPoint.X);
+            //Console.WriteLine("==>Mouse up: endPoint.Y: " + endPoint.Y);
             if(endPoint.X - startPoint.X < 15 || endPoint.Y - startPoint.Y < 15 || isPressEsc == true)
             {
                 canvas.Children.Remove(rect);
@@ -114,6 +115,7 @@ namespace WpfApp.View
         public void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Hallo");
+            //Console.WriteLine("==>>viewModelNGPosition.Position: " + ((ViewModelNGPosition)this.DataContext).Position);
             canvas.Children.Remove(listRects[1]);
             canvas.Children.Remove(listRects[3]);
             //canvas.Children.Remove(rect as UIElement);

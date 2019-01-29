@@ -15,9 +15,9 @@
     </Window.DataContext>
     <Grid>
         <ScrollViewer>
-            <Canvas x:Name="canvas" MouseLeftButtonDown="Canvas_MouseDown" MouseMove="Canvas_MouseMove" MouseLeftButtonUp="Canvas_MouseUp" Background="Transparent" Height="277" Canvas.Left="65" Canvas.Top="122" Width="689"/>
+            <Canvas x:Name="canvas" datacontext:MouseBehaviour.MouseLeftButtonDownCommand="{Binding MouseLeftButtonDownCommand}" datacontext:MouseBehaviour.MouseMoveCommand="{Binding MouseMoveCommand}" Background="Transparent" Height="277" Canvas.Left="65" Canvas.Top="122" Width="689" datacontext:MouseBehaviour.MouseLeftButtonUpCommand="{Binding MouseLeftButtonUpCommand}"/>
         </ScrollViewer>
         
-        <Button Click ="ClearBtn_Click" Content="Button" HorizontalAlignment="Left" Margin="364,55,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Command="{Binding ButtonClickCommand}" Click ="ClearBtn_Click" Content="Button" HorizontalAlignment="Left" Margin="364,55,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
