@@ -20,6 +20,7 @@ namespace WpfApp.View
     /// </summary>
     public partial class NGPositionWindow : Window
     {
+        private string Regex_Expression = @"^[-)!""#$%&'()*+,./:;<=>?@[\]^_`{|}0-9a-zA-Z]{8,32}$";
         public NGPositionWindow()
         {
             InitializeComponent();
